@@ -64,7 +64,7 @@ const images = [
   },
 ];
 
-
+let liElements = [];
 images.forEach(elem => {
     let li = document.createElement('li');
     li.classList = 'gallery-item';
@@ -84,8 +84,10 @@ images.forEach(elem => {
 
     link.append(img);
     li.append(link);
-    document.querySelector(".gallery").append(li);
+    liElements.push(li)
 })
+
+document.querySelector(".gallery").append(...liElements);
 
 document.querySelector(".gallery").addEventListener('click', (e) => {
     if (e.target.dataset.source) {
